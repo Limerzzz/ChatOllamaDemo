@@ -7,7 +7,12 @@ const emit = defineEmits(["modelDownloaded"])
 const state = reactive({
   modelName: undefined
 });
+// 在 Download.vue 文件中定义了名为 downloading 的响应式变量
+// 该变量用于表示下载状态，初始值为 false
 const downloading = ref(false);
+
+// 在 Download.vue 文件中定义了名为 progresses 的响应式变量
+// 该变量用于存储下载进度信息，初始值为空数组
 const progresses = ref([]);
 
 const onDownload = async () => {

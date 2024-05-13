@@ -26,10 +26,11 @@ onMounted(async () => {
     })
   ];
 })
-
 </script>
+
 <template>
   <ClientOnly>
+    <!-- 定义一个 UDropdown 组件 -->
     <UDropdown :items="models" :popper="{ placement: 'bottom-start' }">
       <UButton color="white" :label="label" trailing-icon="i-heroicons-chevron-down-20-solid" />
     </UDropdown>

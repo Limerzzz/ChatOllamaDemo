@@ -7,15 +7,17 @@ const ollama = new Ollama({ host: loadOllamaHost() });
 
 const emit = defineEmits(["modelChanged"])
 
+
 const loadModels = async () => {
   const { models } = await ollama.list();
   return models;
 };
 
 const models = ref([]);
-const modelRows = computed(() => {
+const modelRows = computed(
+  () => {
   return models.value.map((model) => {
-    return {
+    return {  
       name: model.name,
       size: model.size,
       family: model.details?.family,
