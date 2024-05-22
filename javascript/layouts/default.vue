@@ -14,6 +14,10 @@ const links = [
     label: 'Settings',
     icon: 'i-heroicons-chart-bar',
     to: '/settings'
+  },{
+    label: 'Promots',
+    icon: 'i-heroicons-chart-bar',
+    to: '/promots'
   }], 
   [{
     label: 'ChatOllama',

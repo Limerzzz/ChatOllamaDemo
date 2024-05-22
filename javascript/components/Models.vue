@@ -104,7 +104,10 @@ const onDeleteModel = async () => {
     console.log('Status: ', status);
 
     if (status?.status === 'success') {
-      models.value = models.value.filter((m) => m.name !== name);
+      // Remove the deleted model from the list
+      models.value = models.value.filter(
+        (m) => m.name !== name
+        );
     }
   });
 };
