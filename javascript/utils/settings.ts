@@ -11,17 +11,21 @@ export const saveOllamaHost = (host: string) => {
 }
 
 export const savePromot = async (promots: any) => {
+  if (!Array.isArray(promots)) {
+    throw new Error('Parameter is not an array');
+  }
   console.log('save promot', promots);
-  await localStorage.setItem('promot', JSON.stringify(promots));
+  console.log('json', JSON.stringify(promots));
+  await localStorage.setItem('promots', JSON.stringify(promots));
 }
 
 export const loadPromot = () => {
-  if (typeof localStorage !== 'undefined') {
-    const promot = localStorage.getItem('promot');
-    console.log('load promot', promot);
-    return JSON.parse(promot || '[]');
-  } else {
-    console.error('localStorage is not available');
+  const promot = localStorage.getItem('promots');
+  console.log('load promot', promot);
+  let arr = JSON.parse(promot || '[]');
+  if (!Array.isArray(arr)) {
+    console.warn('Promot item in local storage is not an array, returning empty array');
+    return [];
   }
-  return [];
+  return arr;
 }
